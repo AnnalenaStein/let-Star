@@ -151,11 +151,11 @@ function draw() {
                 case 'small':
                     return star.myRadius <= 25;
                 case 'cold':
-                    return star.myTemperature <= 4000;
+                    return star.myTemperature <= 150;
                 case 'warm':
-                    return star.myTemperature > 4000 && star.myTemperature <= 7000;
+                    return star.myTemperature > 150 && star.myTemperature <= 5000;
                 case 'hot':
-                    return star.myTemperature > 7000;
+                    return star.myTemperature > 5200;
                 default:
                     return true;
             }
