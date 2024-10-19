@@ -1,0 +1,61 @@
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+h1 {
+  z-index: 1;
+  color: white;
+  position: absolute;
+  font-size: 40px;
+  padding: 20px;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2 {
+  z-index: 1;
+  color: #d0d0d0;
+  position: absolute;
+  font-size: 20px;
+  margin: 0;
+  top: 70px;
+  left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Container für die vertikale Ausrichtung */
+#buttonContainer {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  display: flex;
+  flex-direction: column; /* Vertikale Ausrichtung */
+  gap: 10px; /* Abstand zwischen den Buttons */
+}
+
+#sizeButtonSmall, #ButtonAll {
+  margin-bottom: 15px; /* Abstand für den mittleren Stern-Button */
+}
+
+.filterButton {
+  z-index: 1;
+  padding: 10px 20px;
+  font-size: 12px;
+  width: 120px;
+  background-color: rgba(51, 51, 51, 0.80);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.filterButton:hover {
+  background-color: rgba(101, 101, 101, 0.85); /* Hover-Farbe */
+}
+
+.filterButton.selected {
+  background-color: rgba(233, 233, 233, 0.85); /* Clicked-Farbe */
+  color: black;
+}
