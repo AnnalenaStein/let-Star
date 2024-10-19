@@ -17,7 +17,7 @@ function preload() {
 function setup() {
     createCanvas(1440, 820, WEBGL); //WEBGL wegen 3D
     colorMode(HSB, 360, 100, 100);
-    let easycam = new Dw.EasyCam(this._renderer, { distance: 700 }); //Distanz die die Kamera im Raum ist
+    let easycam = new Dw.EasyCam(this._renderer, { distance: 2000 }); //Distanz die die Kamera im Raum ist
 
     numOfStars = StarsData.Stars.length;
     console.log("numOfStars", numOfStars);
@@ -53,7 +53,7 @@ function setup() {
         currentStar.myEinheitRadius = StarsData.Stars[i].EinheitRadius;
         currentStar.myTemperature = StarsData.Stars[i].Temperature;
         currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 25.999, 10, 3000); //Min und Max angepasst
-        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 8.95, 10, 100); //Min und Max angepasst
+        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 9.14, 10, 100); //Min und Max angepasst
         currentStar.myLuminosity = map(StarsData.Stars[i].Mv, 0, 888, 100, 225);
 
         // Umrechnungsfaktoren
@@ -145,11 +145,11 @@ function draw() {
         filteredStars = myStars.filter(star => {
             switch (filterCriterion) {
                 case 'big':
-                    return star.myRadius > 12;
+                    return star.myRadius > 50;
                 case 'medium':
-                    return star.myRadius > 10 && star.myRadius <= 12;
+                    return star.myRadius > 25 && star.myRadius <= 50;
                 case 'small':
-                    return star.myRadius <= 10;
+                    return star.myRadius <= 25;
                 case 'cold':
                     return star.myTemperature <= 4000;
                 case 'warm':
