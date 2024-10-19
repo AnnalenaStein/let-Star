@@ -51,8 +51,8 @@ function setup() {
 
         currentStar.myName = StarsData.Stars[i].Name;
         currentStar.myTemperature = StarsData.Stars[i].Temperature;
-        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 962, 1000, 2000); //Min und Max angepasst
-        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 895, 10, 100); //Min und Max angepasst
+        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 962, 1000, 8000); //Min und Max angepasst
+        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 895, 10, 400); //Min und Max angepasst
         currentStar.myLuminosity = map(StarsData.Stars[i].Mv, 0, 888, 100, 225);
 
         // Farbe basierend auf der Spektralklasse
@@ -125,11 +125,11 @@ function draw() {
         filteredStars = myStars.filter(star => {
             switch (filterCriterion) {
                 case 'big':
-                    return star.myRadius > 8;
+                    return star.myRadius > 12;
                 case 'medium':
-                    return star.myRadius > 6.5 && star.myRadius <= 8;
+                    return star.myRadius > 10 && star.myRadius <= 12;
                 case 'small':
-                    return star.myRadius <= 6.5;
+                    return star.myRadius <= 10;
                 case 'cold':
                     return star.myTemperature <= 4000;
                 case 'warm':
