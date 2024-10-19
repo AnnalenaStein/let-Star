@@ -18,12 +18,12 @@ function setup() {
     createCanvas(1440, 820, WEBGL); //WEBGL wegen 3D
     colorMode(HSB, 360, 100, 100);
     let easycam = new Dw.EasyCam(this._renderer, { distance: 700 }); //Distanz die die Kamera im Raum ist
-    
+
     numOfStars = StarsData.Stars.length;
     console.log("numOfStars", numOfStars);
 
-       // Berechne die minimalen und maximalen Entfernungen und Radien
-       for (var i = 0; i < numOfStars; i++) {
+    // Berechne die minimalen und maximalen Entfernungen und Radien
+    for (var i = 0; i < numOfStars; i++) {
         let distance = StarsData.Stars[i].Distance;
         let radius = StarsData.Stars[i].Radius;
 
@@ -50,10 +50,30 @@ function setup() {
         noStroke();
 
         currentStar.myName = StarsData.Stars[i].Name;
+        currentStar.myEinheitRadius = StarsData.Stars[i].EinheitRadius;
         currentStar.myTemperature = StarsData.Stars[i].Temperature;
-        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 962, 1000, 2000); //Min und Max angepasst
-        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 895, 10, 100); //Min und Max angepasst
+        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 962, 500, 2000); //Min und Max angepasst
+        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 8.95, 10, 100); //Min und Max angepasst
         currentStar.myLuminosity = map(StarsData.Stars[i].Mv, 0, 888, 100, 225);
+
+        // Umrechnungsfaktoren
+        const radiusEarth = 1; // 1 Re
+        const radiusSun = 0.004; // 1 Rs in Re
+        const radiusJupiter = 0.11; // 1 Rj in Re
+
+        // Berechnung des Radius in Erdradien
+        if (StarsData.Stars[i].EinheitRadius === "Re") {
+            currentStar.mySize = StarsData.Stars[i].Radius; // Bereits in Re
+        } else if (StarsData.Stars[i].EinheitRadius === "Rs") {
+            currentStar.mySize = StarsData.Stars[i].Radius * (1 / radiusSun); // Umrechnung in Re
+        } else if (StarsData.Stars[i].EinheitRadius === "Rj") {
+            currentStar.mySize = StarsData.Stars[i].Radius * (radiusJupiter / radiusEarth); // Umrechnung in Re
+        } else {
+            currentStar.mySize = 1; // Standardgröße, wenn keine Einheit angegeben ist
+        }
+
+        // console.log(`Original Radius (Einheit: ${StarsData.Stars[i].EinheitRadius}): ${StarsData.Stars[i].Radius}`);
+        // console.log(`Umgerechneter Radius in Erdradien: ${currentStar.mySize}`);
 
         // Farbe basierend auf der Spektralklasse
         let spectralClass = StarsData.Stars[i]["Spectral Class"].charAt(0);

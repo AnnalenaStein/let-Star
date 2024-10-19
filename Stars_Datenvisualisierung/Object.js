@@ -6,6 +6,7 @@ class Stars {
         this.myRadius = 0;
         this.myTemperature = 0;
         this.mySpectralClass = "NaN";
+        //this.myEinheitRadius = "Nan";
         this.myX = 0;
         this.myY = 0;
         this.myZ = 0;
