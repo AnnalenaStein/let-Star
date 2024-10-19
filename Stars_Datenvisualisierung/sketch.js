@@ -145,11 +145,11 @@ function draw() {
         filteredStars = myStars.filter(star => {
             switch (filterCriterion) {
                 case 'big':
-                    return star.myRadius > 8;
+                    return star.myRadius > 12;
                 case 'medium':
-                    return star.myRadius > 6.5 && star.myRadius <= 8;
+                    return star.myRadius > 10 && star.myRadius <= 12;
                 case 'small':
-                    return star.myRadius <= 6.5;
+                    return star.myRadius <= 10;
                 case 'cold':
                     return star.myTemperature <= 4000;
                 case 'warm':
