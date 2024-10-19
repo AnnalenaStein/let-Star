@@ -52,7 +52,7 @@ function setup() {
         currentStar.myName = StarsData.Stars[i].Name;
         currentStar.myEinheitRadius = StarsData.Stars[i].EinheitRadius;
         currentStar.myTemperature = StarsData.Stars[i].Temperature;
-        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 962, 500, 2000); //Min und Max angepasst
+        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 25.999, 10, 3000); //Min und Max angepasst
         currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 8.95, 10, 100); //Min und Max angepasst
         currentStar.myLuminosity = map(StarsData.Stars[i].Mv, 0, 888, 100, 225);
 
