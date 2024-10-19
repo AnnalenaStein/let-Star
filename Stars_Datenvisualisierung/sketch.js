@@ -3,6 +3,12 @@ let numOfStars;
 let StarsData;
 let filterCriterion = null;
 
+let minDistance = Infinity; // Startwert für Minimum der Distanz
+let maxDistance = -Infinity; // Startwert für Maximum der Distanz
+let minRadius = Infinity; // Startwert für Minimum des Radius
+let maxRadius = -Infinity; // Startwert für Maximum des Radius
+
+
 function preload() {
     StarsData = loadJSON("data/StarData.json");
     console.log("StarsData", StarsData);
@@ -11,10 +17,33 @@ function preload() {
 function setup() {
     createCanvas(1440, 820, WEBGL); //WEBGL wegen 3D
     colorMode(HSB, 360, 100, 100);
-    let easycam = new Dw.EasyCam(this._renderer, { distance: 700 }); //Distanz die die Kamera im Raum ist 
-
+    let easycam = new Dw.EasyCam(this._renderer, { distance: 700 }); //Distanz die die Kamera im Raum ist
+    
     numOfStars = StarsData.Stars.length;
     console.log("numOfStars", numOfStars);
+
+       // Berechne die minimalen und maximalen Entfernungen und Radien
+       for (var i = 0; i < numOfStars; i++) {
+        let distance = StarsData.Stars[i].Distance;
+        let radius = StarsData.Stars[i].Radius;
+
+        if (distance < minDistance) {
+            minDistance = distance;
+        }
+        if (distance > maxDistance) {
+            maxDistance = distance;
+        }
+
+        if (radius < minRadius) {
+            minRadius = radius;
+        }
+        if (radius > maxRadius) {
+            maxRadius = radius;
+        }
+    }
+
+    console.log(`Minimale Entfernung: ${minDistance}, Maximale Entfernung: ${maxDistance}`);
+    console.log(`Minimaler Radius: ${minRadius}, Maximaler Radius: ${maxRadius}`);
 
     for (var i = 0; i < numOfStars; i++) {
         let currentStar = new Stars();
@@ -22,8 +51,8 @@ function setup() {
 
         currentStar.myName = StarsData.Stars[i].Name;
         currentStar.myTemperature = StarsData.Stars[i].Temperature;
-        currentStar.myDistance = map(StarsData.Stars[i].Distance, 3, 2601, 100, 1000);
-        currentStar.myRadius = map(StarsData.Stars[i].Radius, -180, 180, 1, 10);
+        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 962, 1000, 2000); //Min und Max angepasst
+        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 895, 10, 100); //Min und Max angepasst
         currentStar.myLuminosity = map(StarsData.Stars[i].Mv, 0, 888, 100, 225);
 
         // Farbe basierend auf der Spektralklasse
