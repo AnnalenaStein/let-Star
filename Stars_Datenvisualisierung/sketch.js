@@ -24,7 +24,7 @@ function setup() {
         currentStar.myTemperature = StarsData.Stars[i].Temperature;
         currentStar.myDistance = map(StarsData.Stars[i].Distance, 3, 2601, 100, 1000);
         currentStar.myRadius = map(StarsData.Stars[i].Radius, -180, 180, 1, 10);
-        currentStar.myLuminosity = map(StarsData.Stars[i].Luminosity, 0, 888, 100, 225);
+        currentStar.myLuminosity = map(StarsData.Stars[i].Mv, 0, 888, 100, 225);
 
         // Farbe basierend auf der Spektralklasse
         let spectralClass = StarsData.Stars[i]["Spectral Class"].charAt(0);
