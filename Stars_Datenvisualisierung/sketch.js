@@ -21,7 +21,7 @@ function preload() {
 function setup() {
     createCanvas(1440, 820, WEBGL); //WEBGL wegen 3D
     colorMode(HSB, 360, 100, 100);
-    let easycam = new Dw.EasyCam(this._renderer, { distance: 2000 }); //Distanz die die Kamera im Raum ist
+    let easycam = new Dw.EasyCam(this._renderer, { distance: 3000 }); //Distanz die die Kamera im Raum ist
 
     numOfStars = StarsData.Stars.length;
     console.log("numOfStars", numOfStars);

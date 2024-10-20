@@ -11,18 +11,37 @@ h1 {
   font-size: 40px;
   padding: 20px;
   margin: 0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  /*'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
 }
 
 h2 {
   z-index: 1;
-  color: #e7dace;
+  color: #f2e7dd;
   position: absolute;
-  font-size: 20px;
+  font-size: 14px;
   margin: 0;
   top: 70px;
   left: 20px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  z-index: 1;
+  color: #e7dace;
+  position: absolute;
+  font-size: 14px;
+  margin: 0;
+  top: 500px;
+  left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+.text-container {
+  width: 15%; /* Volle Breite des übergeordneten Elements */
+  line-height: 1.5; /* Zeilenhöhe für bessere Lesbarkeit */
+  position: absolute;
 }
 
 /* Container für die vertikale Ausrichtung */
