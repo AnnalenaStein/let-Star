@@ -100,33 +100,33 @@ function setup() {
         switch (spectralClass) {
             case 'O':
             case 'B':
-                currentStar.myColor = color(240, 20, 100); // Blau für O und B
+                currentStar.myColor = color(230, 80, 100); // Blau für O und B
                 break;
             case 'A':
             case 'F':
-                currentStar.myColor = color(60, 40, 100); // Weiß-Gelb für A und F
+                currentStar.myColor = color(60, 30, 100); // Weiß-Gelb für A und F
                 break;
             case 'G':
-                currentStar.myColor = color(45, 100, 100); // Helles Gelb für G
+                currentStar.myColor = color(45, 70, 100); // Helles Gelb für G
                 break;
             case 'K':
-                currentStar.myColor = color(30, 100, 100); // Helles Orange für K
+                currentStar.myColor = color(30, 60, 100); // Helles Orange für K
                 break;
             case 'M':
-                currentStar.myColor = color(0, 100, 100); // Helles Rot für M
+                currentStar.myColor = color(0, 50, 100); // Helles Rot für M
                 break;
             case 'T':
-                currentStar.myColor = color(270, 100, 100); // Helles Violett für T
+                currentStar.myColor = color(270, 40, 100); // Helles Violett für T
                 break;
             case 'Y':
             case 'L':
-                currentStar.myColor = color(20, 100, 50); // Dunkelrot-braun für Y und L 
+                currentStar.myColor = color(20, 80, 50); // Dunkelrot-braun für Y und L 
                 break;
             case 'D':
-                currentStar.myColor = color(200, 20, 100); // Helles Weiß für Weißzwerge
+                currentStar.myColor = color(200, 40, 100); // Helles Weiß für Weißzwerge
                 break;
             default:
-                currentStar.myColor = color(0, 0, 100); // Helles Neutral (Weiß) 
+                currentStar.myColor = color(40, 5, 100); // Helles Neutral (Weiß) 
         }
 
         let k = random(2 * PI);
