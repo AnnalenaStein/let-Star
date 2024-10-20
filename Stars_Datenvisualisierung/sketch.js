@@ -126,7 +126,7 @@ function setup() {
                 currentStar.myColor = color(200, 40, 100); // Helles Weiß für Weißzwerge
                 break;
             default:
-                currentStar.myColor = color(40, 5, 100); // Helles Neutral (Weiß) 
+                currentStar.myColor = color(40, 4, 100); // Helles Neutral (Weiß) 
         }
 
         let k = random(2 * PI);
