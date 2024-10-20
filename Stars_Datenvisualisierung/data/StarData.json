@@ -12,7 +12,8 @@
     "Mv": 4.85,
     "Radius": 1,
     "EinheitRadius": "Rs",
-    "Temperature": 5778
+    "Temperature": 5778,
+    "Planet": true
   },
   {
     "Name": "Mercury",
@@ -27,7 +28,8 @@
     "Mv": "",
     "Radius": 0.38,
     "EinheitRadius": "Re",
-    "Temperature": 436
+    "Temperature": 436,
+    "Planet": true
   },
   {
     "Name": "Venus",
@@ -42,7 +44,8 @@
     "Mv": "",
     "Radius": 0.95,
     "EinheitRadius": "Re",
-    "Temperature": 252
+    "Temperature": 252,
+    "Planet": true
   },
   {
     "Name": "Earth",
@@ -57,7 +60,8 @@
     "Mv": "",
     "Radius": 1,
     "EinheitRadius": "Re",
-    "Temperature": 249
+    "Temperature": 249,
+    "Planet": true
   },
   {
     "Name": "Mars",
@@ -72,7 +76,8 @@
     "Mv": "",
     "Radius": 0.53,
     "EinheitRadius": "Re",
-    "Temperature": 217
+    "Temperature": 217,
+    "Planet": true
   },
   {
     "Name": "Jupiter",
@@ -87,7 +92,8 @@
     "Mv": "",
     "Radius": 1,
     "EinheitRadius": "Rj",
-    "Temperature": 102
+    "Temperature": 102,
+    "Planet": true
   },
   {
     "Name": "Saturn",
@@ -102,7 +108,8 @@
     "Mv": "",
     "Radius": 9.14,
     "EinheitRadius": "Re",
-    "Temperature": 77
+    "Temperature": 77,
+    "Planet": true
   },
   {
     "Name": "Uranus",
@@ -117,7 +124,8 @@
     "Mv": "",
     "Radius": 3.98,
     "EinheitRadius": "Re",
-    "Temperature": 53
+    "Temperature": 53,
+    "Planet": true
   },
   {
     "Name": "Neptune",
@@ -132,7 +140,8 @@
     "Mv": "",
     "Radius": 3.86,
     "EinheitRadius": "Re",
-    "Temperature": 44
+    "Temperature": 44,
+    "Planet": true
   },
   {
     "Name": "Pluto",
@@ -147,7 +156,8 @@
     "Mv": "",
     "Radius": 0.19,
     "EinheitRadius": "Re",
-    "Temperature": 32
+    "Temperature": 32,
+    "Planet": true
   },
   {
     "Name": "Proxima",

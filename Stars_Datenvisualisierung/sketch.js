@@ -7,6 +7,10 @@ let minDistance = Infinity; // Startwert für Minimum der Distanz
 let maxDistance = -Infinity; // Startwert für Maximum der Distanz
 let minRadius = Infinity; // Startwert für Minimum des Radius
 let maxRadius = -Infinity; // Startwert für Maximum des Radius
+let minMv = Infinity; // Startwert für Minimum der MV
+let maxMv = -Infinity;
+let minTemperature = Infinity; // Startwert für Minimum der MV
+let maxTemperature = -Infinity;
 
 
 function preload() {
@@ -26,6 +30,8 @@ function setup() {
     for (var i = 0; i < numOfStars; i++) {
         let distance = StarsData.Stars[i].Distance;
         let radius = StarsData.Stars[i].Radius;
+        let mv = StarsData.Stars[i].Mv;
+        let temperature = StarsData.Stars[i].Temperature;
 
         if (distance < minDistance) {
             minDistance = distance;
@@ -40,10 +46,24 @@ function setup() {
         if (radius > maxRadius) {
             maxRadius = radius;
         }
+        if (mv < minMv) {
+            minMv = mv;
+        }
+        if (mv > maxMv) {
+            maxMv = mv;
+        }
+        if (temperature < minTemperature) {
+            minTemperature = temperature;
+        }
+        if (temperature > maxTemperature) {
+            maxTemperature = temperature;
+        }
     }
 
     console.log(`Minimale Entfernung: ${minDistance}, Maximale Entfernung: ${maxDistance}`);
     console.log(`Minimaler Radius: ${minRadius}, Maximaler Radius: ${maxRadius}`);
+    console.log(`Minimaler Mv: ${minMv}, Maximaler Mv: ${maxMv}`);
+    console.log(`Minimale Temperatur: ${minTemperature}, Maximale Temperatur: ${maxTemperature}`);
 
     for (var i = 0; i < numOfStars; i++) {
         let currentStar = new Stars();
@@ -52,9 +72,9 @@ function setup() {
         currentStar.myName = StarsData.Stars[i].Name;
         currentStar.myEinheitRadius = StarsData.Stars[i].EinheitRadius;
         currentStar.myTemperature = StarsData.Stars[i].Temperature;
-        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 25.999, 10, 3000); //Min und Max angepasst
-        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 9.14, 10, 100); //Min und Max angepasst
-        currentStar.myLuminosity = map(StarsData.Stars[i].Mv, 0, 888, 100, 225);
+        currentStar.myDistance = map(StarsData.Stars[i].Distance, 0, 25.999, 0, 3000); //Min und Max angepasst
+        currentStar.myRadius = map(StarsData.Stars[i].Radius, 0, 9.14, 10, 200); //Min und Max angepasst
+        currentStar.myLuminosity = map(StarsData.Stars[i].Mv, 0, 27.57, 100, 225);
 
         // Umrechnungsfaktoren
         const radiusEarth = 1; // 1 Re
@@ -80,23 +100,33 @@ function setup() {
         switch (spectralClass) {
             case 'O':
             case 'B':
-                currentStar.myColor = color(200, 20, currentStar.myLuminosity); // Blau für O und B
+                currentStar.myColor = color(240, 20, 100); // Blau für O und B
                 break;
             case 'A':
             case 'F':
-                currentStar.myColor = color(60, 5, currentStar.myLuminosity); // Weiß-Gelb für A und F
+                currentStar.myColor = color(60, 40, 100); // Weiß-Gelb für A und F
                 break;
             case 'G':
-                currentStar.myColor = color(60, 30, 150, currentStar.myLuminosity); // Gelblich für G
+                currentStar.myColor = color(45, 100, 100); // Helles Gelb für G
                 break;
             case 'K':
-                currentStar.myColor = color(30, 30, 100, currentStar.myLuminosity); // Orange für K
+                currentStar.myColor = color(30, 100, 100); // Helles Orange für K
                 break;
             case 'M':
-                currentStar.myColor = color(5, 15, 100, currentStar.myLuminosity); // Rot für M
+                currentStar.myColor = color(0, 100, 100); // Helles Rot für M
+                break;
+            case 'T':
+                currentStar.myColor = color(270, 100, 100); // Helles Violett für T
+                break;
+            case 'Y':
+            case 'L':
+                currentStar.myColor = color(20, 100, 50); // Dunkelrot-braun für Y und L 
+                break;
+            case 'D':
+                currentStar.myColor = color(200, 20, 100); // Helles Weiß für Weißzwerge
                 break;
             default:
-                currentStar.myColor = color(225, 1, 225, currentStar.myLuminosity); // Neutral (Weiß) falls unbekannte Spektralklasse
+                currentStar.myColor = color(0, 0, 100); // Helles Neutral (Weiß) 
         }
 
         let k = random(2 * PI);
@@ -151,11 +181,11 @@ function draw() {
                 case 'small':
                     return star.myRadius <= 25;
                 case 'cold':
-                    return star.myTemperature <= 150;
+                    return star.myTemperature <= 1110;
                 case 'warm':
-                    return star.myTemperature > 150 && star.myTemperature <= 5000;
+                    return star.myTemperature > 1110 && star.myTemperature <= 5100;
                 case 'hot':
-                    return star.myTemperature > 5200;
+                    return star.myTemperature > 5100;
                 default:
                     return true;
             }
