@@ -38,8 +38,14 @@ p {
   font-weight: normal;
 }
 
-.text-container {
+.überschrift-container {
   width: 660px; /* Volle Breite des übergeordneten Elements */
+  line-height: 1.5; /* Zeilenhöhe für bessere Lesbarkeit */
+  position: absolute;
+}
+
+.text-container {
+  width: 150px; /* Volle Breite des übergeordneten Elements */
   line-height: 1.5; /* Zeilenhöhe für bessere Lesbarkeit */
   position: absolute;
 }
