@@ -155,6 +155,21 @@ function setup() {
     document.getElementById('warmButton').addEventListener('click', () => { filterCriterion = 'warm'; updateSelectedButton('warmButton'); });
     document.getElementById('hotButton').addEventListener('click', () => { filterCriterion = 'hot'; updateSelectedButton('hotButton'); });
 
+    // Ausblenden
+    document.getElementById('toggleButton').addEventListener('click', () => {
+        const elementsToToggle = document.querySelectorAll('p, #ausblenden');
+    
+        elementsToToggle.forEach(element => {
+            if (element.style.display === 'block' || element.style.display === '') {
+                element.style.display = 'none';
+            } else {
+                element.style.display = 'block';
+            }
+        });
+    
+        document.getElementById('toggleButton').classList.toggle('rotated');
+    });
+
     // Funktion zum Aktualisieren des ausgewählten Buttons
     function updateSelectedButton(selectedId) {
         const buttons = document.querySelectorAll('.filterButton');
@@ -197,7 +212,7 @@ function draw() {
     // Zeichne die kleine Kugel in der Mitte
     push();
     fill(215, 89, 64); // Gelbe Farbe
-    translate(0, 0, 0);
+    translate(0, 0, 0); // Verschiebung des Mittelpunkts
     sphere(5); // Radius der Kugel
     pop();
 
